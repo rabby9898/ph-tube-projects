@@ -3,11 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>PH-Tube</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <section class="px-5 py-6 md:px-16 md:py-10">
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="">
+              <img src="./images/Logo.png" class="w-4/5 md:w-full" alt="" />
+            </div>
+          </div>
+          <div class="navbar-center">
+            <button
+              class="btn btn-ghost text-xs md:text-base capitalize bg-[#D2D4D7] hover:bg-[#FF1F3D] active:bg-[#FF1F3D] focus:outline-none focus:bg-[#FF1F3D]"
+            >
+              Sort By View
+            </button>
+          </div>
+          <div class="navbar-end">
+            <button
+              class="btn btn-ghost bg-[#D2D4D7] text-xs md:text-base capitalize hover:bg-[#FF1F3D] active:bg-[#FF1F3D] focus:outline-none focus:bg-[#FF1F3D]"
+            >
+              Blog
+            </button>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section>
+        <div>
+          <button
+            class="btn btn-ghost bg-[#D2D4D7] text-xs md:text-base capitalize hover:bg-[#FF1F3D] active:bg-[#FF1F3D] focus:outline-none focus:bg-[#FF1F3D]"
+          >
+            Blog
+          </button>
+        </div>
+
+        <div>
+          <div class="card w-96 bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Shoes!</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <footer></footer>
   </body>
   <script src="js/data.js"></script>
