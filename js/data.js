@@ -30,7 +30,6 @@ const loadVideoData = async (id) => {
   );
   const data = await res.json();
   const videoData = data.data;
-  console.log(videoData);
   displayVideoData(videoData);
 };
 
@@ -42,6 +41,7 @@ const displayVideoData = (videoData) => {
     noDataFound();
     return;
   }
+
   videoData.forEach((item) => {
     let totalSeconds = item.others.posted_date;
     const hours = Math.floor(totalSeconds / 3600);
@@ -105,6 +105,13 @@ const clearData = () => {
 const handleCategory = (id) => {
   loadVideoData(id);
 };
+
+// let videoData = [];
+// const handleSortByNum = () => {
+//   const originalVideoData = [...videoData]; // Make a copy of the original video data
+//   originalVideoData.sort((a, b) => b.others.views - a.others.views);
+//   displayVideoData(originalVideoData);
+// };
 
 loadCategoryData();
 
