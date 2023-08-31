@@ -38,19 +38,21 @@
         </div>
       </section>
     </header>
+    <div class="px-16">
+      <hr />
+    </div>
     <main>
-      <section>
-        <div>
-          <button
-            class="btn btn-ghost bg-[#D2D4D7] text-xs md:text-base capitalize hover:bg-[#FF1F3D] active:bg-[#FF1F3D] focus:outline-none focus:bg-[#FF1F3D]"
-          >
-            Blog
-          </button>
-        </div>
+      <section class="px-5 py-6 md:px-16 md:py-10">
+        <div
+          id="category-btn"
+          class="flex flex-wrap justify-center gap-3"
+        ></div>
 
-        <div>
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <figure>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-6 md:py-12"
+          id="card-area"
+        >
+          <!-- <figure>
               <img
                 src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
                 alt="Shoes"
@@ -62,12 +64,15 @@
               <div class="card-actions justify-end">
                 <button class="btn btn-primary">Buy Now</button>
               </div>
-            </div>
-          </div>
+            </div> -->
         </div>
       </section>
     </main>
     <footer></footer>
   </body>
   <script src="js/data.js"></script>
+  <script
+    src="https://kit.fontawesome.com/1be205bc6c.js"
+    crossorigin="anonymous"
+  ></script>
 </html>
