@@ -43,9 +43,10 @@ const displayVideoData = (videoData) => {
     return;
   }
   videoData.forEach((item) => {
-    let totalMs = item.others.posted_date;
-    console.log(totalMs);
-    // console.log(new Date(totalMs).toISOString());
+    let totalSeconds = item.others.posted_date;
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
     const div = document.createElement("div");
     div.classList = `card w-full md:w-[280px] lg:w-96 bg-base-100 shadow-xl my-6`;
 
@@ -55,9 +56,9 @@ const displayVideoData = (videoData) => {
               class="w-full h-64 relative"
                 src=${item.thumbnail}
             />
-            <p class="bg-black text-white absolute top-56 left-64">${
-              item.others.posted_date
-            } ago</p>
+            <p class="text-[10px] md:text-sm border-[#171717] rounded p-1 text-white absolute top-48 left-52 md:top-48 md:left-40 lg:left-64 ${
+              totalSeconds ? "bg-[#171717]" : ""
+            }">${totalSeconds ? `${hours}hrs ${minutes}min ago` : ""}</p>
         </figure>
         <div class="card-body">
             <h2 class="card-title">${item.title}</h2>
