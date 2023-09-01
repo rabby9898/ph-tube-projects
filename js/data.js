@@ -1,15 +1,17 @@
+let videoData = [];
 const loadCategoryData = async () => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/categories`
   );
   const data = await res.json();
   const categoryData = data.data;
-  console.log(categoryData);
+
   displayCategory(categoryData);
 };
-
+/********** Category Button **********/
 const displayCategory = (categoryData) => {
   const categoryElement = document.getElementById("category-btn");
+
   categoryData.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -23,16 +25,17 @@ const displayCategory = (categoryData) => {
     categoryElement.appendChild(div);
   });
 };
-
+/********** Load DAta **********/
 const loadVideoData = async (id) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${id}`
   );
   const data = await res.json();
-  const videoData = data.data;
+  videoData = data.data;
   displayVideoData(videoData);
 };
 
+/********** Show Data function **********/
 const displayVideoData = (videoData) => {
   const cardAreaElement = document.getElementById("card-area");
   cardAreaElement.innerHTML = "";
@@ -69,7 +72,7 @@ const displayVideoData = (videoData) => {
               />
               <p>${item.authors[0].profile_name} ${
       item.authors[0].verified
-        ? '<i class="fa-solid fa-certificate text-[#2568EF] "></i>'
+        ? `<img class="inline-block" src="/images/fi_10629607.png" alt="Verified Icon" />`
         : ""
     }</p>
             </div>
@@ -80,16 +83,13 @@ const displayVideoData = (videoData) => {
   });
   clearData();
 };
-
-const handleSortByNum = async (id) => {
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/videos/category/${id}`
+/********** Sort Descending by views **********/
+const handleSortByNum = () => {
+  const sortVideoData = videoData.sort(
+    (a, b) => parseFloat(b.others.views) - parseFloat(a.others.views)
   );
-  const data = await res.json();
-  const videoDataNow = data.data;
-  const newData = videoDataNow.sort((a, b) => b.others.views - a.others.views);
-  console.log(newData);
-  displayVideoData(newData);
+  console.log(sortVideoData);
+  displayVideoData(sortVideoData);
 };
 
 /********** No Data Found Area Function **********/
@@ -107,7 +107,7 @@ const noDataFound = () => {
     `;
   noDataArea.appendChild(div);
 };
-
+/********** Clear Data **********/
 const clearData = () => {
   const noDataArea = document.getElementById("no-data");
   noDataArea.innerHTML = "";
@@ -119,6 +119,6 @@ const handleCategory = (id) => {
 handleBlogBtn = () => {
   window.location.href = "blog.html";
 };
-loadCategoryData();
 
+loadCategoryData();
 loadVideoData("1000");
