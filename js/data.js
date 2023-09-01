@@ -81,6 +81,17 @@ const displayVideoData = (videoData) => {
   clearData();
 };
 
+const handleSortByNum = async (id) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/videos/category/${id}`
+  );
+  const data = await res.json();
+  const videoDataNow = data.data;
+  const newData = videoDataNow.sort((a, b) => b.others.views - a.others.views);
+  console.log(newData);
+  displayVideoData(newData);
+};
+
 /********** No Data Found Area Function **********/
 const noDataFound = () => {
   const noDataArea = document.getElementById("no-data");
@@ -105,14 +116,9 @@ const clearData = () => {
 const handleCategory = (id) => {
   loadVideoData(id);
 };
-
-// let videoData = [];
-// const handleSortByNum = () => {
-//   const originalVideoData = [...videoData]; // Make a copy of the original video data
-//   originalVideoData.sort((a, b) => b.others.views - a.others.views);
-//   displayVideoData(originalVideoData);
-// };
-
+handleBlogBtn = () => {
+  window.location.href = "blog.html";
+};
 loadCategoryData();
 
 loadVideoData("1000");
