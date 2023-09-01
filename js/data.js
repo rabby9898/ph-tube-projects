@@ -17,7 +17,7 @@ const displayCategory = (categoryData) => {
     div.innerHTML = `
     <button
             onclick="handleCategory('${category.category_id}')"
-            class="btn btn-ghost bg-[#D2D4D7] text-xs md:text-base capitalize mr-4 hover:bg-[#FF1F3D] active:bg-[#FF1F3D] focus:outline-none focus:bg-[#FF1F3D]"
+            class="btn btn-ghost bg-[#D2D4D7] text-xs md:text-base capitalize mr-4 hover:bg-[#FF1F3D] hover:text-white active:bg-[#FF1F3D] focus:outline-none focus:bg-[#FF1F3D]"
           >
             ${category.category}
           </button>
